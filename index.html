@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homa | Social Media Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e63946',
+                        secondary: '#457b9d',
+                        light: '#f1faee',
+                        dark: '#1d3557',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            height: 100%;
+        }
+        
+        .portfolio-item {
+            overflow: hidden;
+        }
+        
+        .portfolio-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .tool-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tool-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e63946;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-bold text-primary">Homa<span class="text-secondary">.</span></a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link font-medium hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="nav-link font-medium hover:text-primary transition-colors">About</a>
+                <a href="#services" class="nav-link font-medium hover:text-primary transition-colors">Services</a>
+                <a href="#packages" class="nav-link font-medium hover:text-primary transition-colors">Packages</a>
+                <a href="#portfolio" class="nav-link font-medium hover:text-primary transition-colors">Portfolio</a>
+                <a href="#testimonials" class="nav-link font-medium hover:text-primary transition-colors">Testimonials</a>
+                <a href="#contact" class="nav-link font-medium hover:text-primary transition-colors">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <script>
+                const menuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            </script>
+
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="py-2 hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="py-2 hover:text-primary transition-colors">About</a>
+                <a href="#services" class="py-2 hover:text-primary transition-colors">Services</a>
+                <a href="#packages" class="py-2 hover:text-primary transition-colors">Packages</a>
+                <a href="#portfolio" class="py-2 hover:text-primary transition-colors">Portfolio</a>
+                <a href="#testimonials" class="py-2 hover:text-primary transition-colors">Testimonials</a>
+                <a href="#contact" class="py-2 hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-20 bg-gradient-to-br from-white to-blue-50">
+        <div class="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center">
+            <div class="md:w-1/2 mt-10 md:mt-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
+                    Elevate Your <span class="text-primary">Social Media</span> Presence
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-lg">
+                    I help brands grow their online presence through strategic social media management and engaging content creation.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="btn px-8 py-3 bg-primary text-white font-medium rounded-full hover:bg-opacity-90 transition-all transform hover:-translate-y-1 shadow-lg text-center">
+                        Book a Consultation
+                    </a>
+                    <a href="#services" class="btn px-8 py-3 border-2 border-secondary text-secondary font-medium rounded-full hover:bg-secondary hover:text-white transition-all transform hover:-translate-y-1 text-center">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-64 h-64 bg-indigo-600 rounded-full opacity-10"></div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-pink-500 rounded-full opacity-10"></div>
+                    <div class="w-80 h-80 rounded-full overflow-hidden relative z-10">
+                        <img src="images/HOMA 1.jpg" alt ="HOMA 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h2 class="text-2xl font-bold text-gray-800">HOMA</h2>
+                        <p class="text-sm text-gray-500">Social Media Manager</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">About <span class="text-primary">Me</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center px-6 py-10">
+                <div class="md:w-2/5 mb-10 md:mb-0">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-indigo-600 rounded-lg"></div>
+                        <div class="bg-gray-200 rounded-lg overflow-hidden relative z-10">
+                            <img src="images/HOMA 2.jpg" class="w-full h-auto object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>              
+                <div class="md:w-3/5 md:pl-16">
+                    <h3 class="text-2xl font-display font-semibold mb-4">Hi, I'm Homa</h3>
+                    <p class="text-gray-600 mb-6">
+                        I'm a passionate Social Media Manager with over 2 years of experience helping brands build meaningful connections with their audiences online. My mission is to transform your social media presence into a powerful marketing tool that drives engagement, builds brand loyalty, and generates real business results.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        What makes me unique is my data-driven approach combined with creative storytelling. I don't just create content; I craft strategic narratives that resonate with your target audience and align with your business goals.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Data-Driven</h4>
+                                <p class="text-sm text-gray-500">Results-focused strategies</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-lightbulb text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Creative</h4>
+                                <p class="text-sm text-gray-500">Engaging content creation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Community Builder</h4>
+                                <p class="text-sm text-gray-500">Audience engagement expert</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-bullseye text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Strategic</h4>
+                                <p class="text-sm text-gray-500">Goal-oriented planning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">My <span class="text-primary">Services</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive social media solutions tailored to your brand's unique needs and goals.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-tasks text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Social Media Management</h3>
+                    <p class="text-gray-600 mb-4">
+                        Full-service management of your social media accounts, including content creation, scheduling, community engagement, and analytics reporting.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Daily monitoring & engagement</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Content calendar planning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Monthly performance reports</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Strategy Development</h3>
+                    <p class="text-gray-600 mb-4">
+                        Custom social media strategies aligned with your business objectives to maximize your online presence and ROI.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Competitor analysis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Target audience research</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Platform-specific strategies</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-camera text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Content Creation</h3>
+                    <p class="text-gray-600 mb-4">
+                        Eye-catching, on-brand content that engages your audience and tells your brand story effectively.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Graphic design & templates</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Copywriting & captions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Video content & Reels</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-lg p-6 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Consultations</h3>
+                    <p class="text-gray-600 mb-4">
+                        Expert guidance and training to help you optimize your social media approach and skills.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Social media audits</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>One-on-one coaching</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Team training workshops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">Packages & <span class="text-primary">Rates</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    Flexible packages designed to meet your specific needs and budget.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                    <div class="bg-gray-50 p-6 text-center border-b">
+                        <h3 class="text-xl font-semibold">Starter Package</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$100</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Management of 2 social platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>12 posts per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Monthly Content Calender</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Basic Hashtage Strategy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Monthly performance report</span>
+                            </li>
+                            <li class="flex items-start text-gray-400">
+                                <i class="fas fa-times mt-1 mr-3"></i>
+                                <span>Strategy development</span>
+                            </li>
+                            <li class="flex items-start text-gray-400">
+                                <i class="fas fa-times mt-1 mr-3"></i>
+                                <span>Video content</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-8 block w-full py-3 px-6 text-center bg-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform scale-105 border-2 border-primary relative transition-transform duration-300 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0">
+                        <div class="bg-primary text-white py-1 px-4 text-sm font-semibold">
+                            POPULAR
+                        </div>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 p-6 text-center border-b border-primary">
+                        <h3 class="text-xl font-semibold">Growth Package</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$200</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Management of 3 social platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>20 posts per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Bi-weekly Content Calender</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Customer Engagement(2 Hours)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Bi-weekly performance reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Basic strategy development</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-8 block w-full py-3 px-6 text-center bg-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                    <div class="bg-gray-50 p-6 text-center border-b">
+                        <h3 class="text-xl font-semibold">Premium Package</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$350</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Management of 4+ social platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>30+ posts per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Priority Customer Engagement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Weekly performance reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span>Comprehensive strategy</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="mt-8 block w-full py-3 px-6 text-center bg-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <h3 class="text-xl font-semibold mb-4">Need something more specific?</h3>
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+                    I also offer custom packages and one-time services tailored to your specific needs.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-2">Social Media Audit</h4>
+                        <p class="text-gray-600 mb-3">Comprehensive analysis of your current social presence</p>
+                        <span class="font-bold text-primary">$100</span>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-2">Content Calendar</h4>
+                        <p class="text-gray-600 mb-3">30-day content plan with captions and hashtags</p>
+                        <span class="font-bold text-primary">$50</span>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-2">Strategy Session</h4>
+                        <p class="text-gray-600 mb-3">90-minute consultation with action plan</p>
+                        <span class="font-bold text-primary">$100</span>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-2">Content Creation</h4>
+                        <p class="text-gray-600 mb-3">1 month content creation and video editing</p>
+                        <span class="font-bold text-primary">$100</span>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-2">Graphic Design</h4>
+                        <p class="text-gray-600 mb-3">Transform your brand's identity with stunning graphic designs</p>
+                        <span class="font-bold text-primary"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">Brands I've <span class="text-primary">Worked With</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    Trusted by businesses across various industries to elevate their social media presence.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+                <!-- Brand 1 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0012.jpg"
+                        alt="IMG-20250722-WA0012" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 2 -->
+                <div class="flex justify-center p-4">
+                    <img
+                        src="images/IMG-20250722-WA0017.jpg"
+                        alt="IMG-20250722-WA0017" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 3 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0016.jpg"
+                        alt="IMG-20250722-WA0016" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 4 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0014.jpg" 
+                        alt="IMG-20250722-WA0014" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 5 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0015.jpg"
+                        alt="IMG-20250722-WA0015" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 6 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0013.jpg" 
+                        alt="IMG-20250722-WA0013" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+                
+                <!-- Brand 7 -->
+                <div class="flex justify-center p-4">
+                    <img 
+                        src="images/IMG-20250722-WA0018.jpg"
+                        alt="IMG-20250722-WA0018" 
+                        class="w-32 h-32 object-contain"
+                    >
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">Client <span class="text-primary">Testimonials</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    Don't just take my word for it. Here's what my clients have to say about working with me.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img 
+                                src="images/WhatsApp Image 2025-07-22 at 20.27.38_a12e539d.jpg"
+                                alt="WhatsApp Image 2025-07-22 at 20.27.38_a12e539d" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Toyen Harry</h4>
+                            <p class="text-sm text-gray-500">Kodesh Skincare Spa</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Working with her has been one of the best decisions I made for Kodesh. Before now, we had no real structure or direction online but she came in, understood the heart of my brand, and turned our digital presence into something truly beautiful and professional. The content, the strategy, the consistency it all just flowed. Clients now find us easily, and our Instagram literally feels like home. I can't recommend her enough!."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                       <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img 
+                                src="images/WhatsApp Image 2025-07-22 at 20.31.34_4ede357a.jpg"
+                                alt="WhatsApp Image 2025-07-22 at 20.31.34_4ede357a" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Xotic Queens Beauty</h4>
+                            <p class="text-sm text-gray-500">Skincare and Spa Founder</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "She just got it! From the moment we started working together, she brought clarity and structure to our content. Everything now feels more intentional our page looks beautiful, and the feedback from our clients has been amazing. She helped us elevate our online game without losing our unique vibe."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 rounded-lg p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img 
+                                src="images/WhatsApp Image 2025-07-22 at 20.36.50_5278fee0.jpg"
+                                alt="WhatsApp Image 2025-07-22 at 20.36.50_5278fee0" 
+                                class="w-full h-full object-cover"
+                            >
+                        </div>
+
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Jessica Williams</h4>
+                            <p class="text-sm text-gray-500">Beauty Brand Marketing Director</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "We came with a vision, and she translated it into visuals that perfectly embodied our mission. The logo she designed wasn't just beautiful it was thoughtful, intentional, and deeply aligned with our values as an HR firm. Every element had meaning, and the professionalism in her approach made the entire process seamless. She didn't just design for us; she understood us. That made all the difference."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">Tools I <span class="text-primary">Use</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    I leverage industry-leading tools and platforms to create and manage exceptional social media content.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Tool 1 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 mb-3">
+                        <img
+                            src="images/Canva.jpeg"
+                            alt="Canva"
+                            class="w-full h-full object-contain"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center text-sm">Canva</h4>
+                </div>
+
+                
+                <!-- Tool 2 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/meta-business-suite-logo.webp"
+                            alt="Meta Business Suite Logo"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center">Meta Business Suite</h4>
+                </div>
+                
+                <!-- Tool 3 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/Capcut.png"
+                            alt="Capcut"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center">CapCut</h4>
+                </div>
+                
+                <!-- Tool 4 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/Notion.png"
+                            alt="Notion"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center">Notion</h4>
+                </div>
+                
+                <!-- Tool 5 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/Google my business.png"
+                            alt="Google My Business"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center text-sm">Google My Business</h4>
+                </div>
+
+                
+                <!-- Tool 6 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/MailChimp.jpeg"
+                            alt="MailChimp"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center">Mailchimp</h4>
+                </div>
+                
+                <!-- Tool 7 -->
+                <div class="tool-icon flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3 overflow-hidden">
+                        <img
+                            src="images/Google Analytics.svg"
+                            alt="Google Analytics"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <h4 class="font-medium text-center">Google Analytics</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">My <span class="text-primary">Portfolio</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    A showcase of my recent social media projects and success stories.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <image href="images/TikTok-Page-Audit.jpg" x="0" y="0" width="400" height="300" preserveAspectRatio="xMidYMid slice" />
+                        </svg>
+
+                        <div class="absolute inset-0 bg-dark bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold px-4 py-2 rounded-full bg-primary">TikTok Audit</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">TikTok Page Audit for a Skincare Brand Owner</h3>
+                        <p class="text-gray-600 mb-4">Performed a detailed TikTok audit highlighting content gaps, growth opportunities, and engagement strategies to improve reach, branding, and conversions. Delivered a concise action plan for improved consistency and performance.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            <span>45% Engagement Increase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <image href="images/Kodesh-Skincare.jpg" x="0" y="0" width="400" height="300" preserveAspectRatio="xMidYMid slice" />
+                        </svg>
+
+                        <div class="absolute inset-0 bg-dark bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold px-4 py-2 rounded-full bg-primary">Reels Strategy</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Social Media Management for Kodesh Skincare and Spa</h3>
+                        <p class="text-gray-600 mb-4">Managed Kodesh's social media presence, creating engaging content, improving brand visibility, and driving audience interaction across Instagram and Facebook.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>10K New Followers</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <image href="images/Xotic-Beauty.jpg" x="0" y="0" width="400" height="300" preserveAspectRatio="xMidYMid slice" />
+                        </svg>
+
+                        <div class="absolute inset-0 bg-dark bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white font-semibold px-4 py-2 rounded-full bg-primary">Content Calendar</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Social Media Management for Xotic Queens Beauty</h3>
+                        <p class="text-gray-600 mb-4">Handled content creation and account management for Xotic Queens Beauty, enhancing brand aesthetics, boosting engagement, and promoting product visibility to attract loyal beauty lovers.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-eye mr-2"></i>
+                            <span>1M+ Views</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <image href="images/Social-Media-Analytics.jpg" x="0" y="0" width="400" height="300" preserveAspectRatio="xMidYMid slice" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Social Media Analytics & Reporting</h3>
+                        <p class="text-gray-600 mb-4">Conducted in-depth page analytics to track performance, audience behavior, and content effectiveness. Delivered clear, actionable reports to guide strategy and boost brand growth.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            <span>30% Reservation Increase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 5 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                            <source src="video/WhatsApp Video 2025-07-23 at 23.29.16_89dbfeb8.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Personal Brand Growth as a Social Media Manager</h3>
+                        <p class="text-gray-600 mb-4">Strategically building and growing my personal brand across Instagram and TikTok, showcasing expertise, attracting high-value leads, and positioning myself as a trusted social media expert.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            <span>25% Conversion Increase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 6 -->
+                <div class="portfolio-item rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative h-64 bg-gray-200">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+                            <source src="video/WhatsApp Video 2025-07-23 at 23.34.59_f8d3fbfe.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg mb-2">Content Strategy & Creation for Brands</h3>
+                        <p class="text-gray-600 mb-4">Developed engaging, educational content calendars tailored to each brand's goals. Handled content creation and video editing to ensure consistent storytelling, audience connection, and high-performing visuals across platforms.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-block px-8 py-3 bg-primary text-white font-medium rounded-full hover:bg-opacity-90 transition-all transform hover:-translate-y-1 shadow-lg">
+                    Ready to transform your social media? Let's talk!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Ready to Elevate Your Social Media Presence?</h2>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-white text-opacity-90">
+                Book a free 30-minute consultation to discuss how I can help your brand grow online.
+            </p>
+            <a href="#contact" class="inline-block px-10 py-4 bg-white text-primary font-semibold rounded-full hover:bg-opacity-90 transition-all transform hover:-translate-y-1 shadow-lg">
+                Book a Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold">Get in <span class="text-primary">Touch</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    Have questions or ready to start? Reach out and let's discuss how I can help your brand grow on social media.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8">
+                    <form action="https://formspree.io/f/mrblprbo" method="POST" class="space-y-6">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Enter your name">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="Enter your email">
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    placeholder="What's this about?">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                        placeholder="Tell me about your project or inquiry"></textarea>
+                            </div>
+
+                            <div>
+                                <button type="submit"
+                                        class="w-full px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                                    Send Message
+                                </button>
+                            </div>
+                    </form>
+                    <script>
+                        const form = document.getElementById('contact-form');
+                        const successMessage = document.getElementById('success-message');
+
+                        form.addEventListener('submit', async function (e) {
+                            e.preventDefault(); // Stop default form submit
+
+                            const formData = new FormData(form);
+
+                            const response = await fetch(form.action, {
+                                method: form.method,
+                                body: formData,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
+
+                            if (response.ok) {
+                                successMessage.classList.remove('hidden'); // Show message
+
+                                setTimeout(() => {
+                                    form.reset(); // Reset form fields
+                                    successMessage.classList.add('hidden'); // Optionally hide message
+                                }, 2000); // Delay (2 seconds) before reset
+                            } else {
+                                alert('Oops! Something went wrong. Please try again.');
+                            }
+                        });
+                    </script>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-8">
+                    <div class="bg-gray-50 rounded-lg p-8 h-full">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="obuzorhomavictory@gmail.com" class="text-primary hover:underline">obuzorhomavictory@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-secondary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">WhatsApp</h4>
+                                    <a href="https://wa.me/2349138458031" class="text-secondary hover:underline">+234 913 845 8031</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Office Hours</h4>
+                                    <p class="text-gray-600">Monday - Sunday: 9AM - 5PM WAT</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6">
+                                <h4 class="font-medium mb-4">Follow Me</h4>
+                                <div class="flex space-x-4">
+                                    <!-- Instagram -->
+                                    <a href="https://www.instagram.com/homa_obz?igsh=MTkzM3hibnVqYWVybw%3D%3D&utm_source=qr" target="_blank" rel="noopener"
+                                        class="w-10 h-10 rounded-full text-white flex items-center justify-center 
+                                            bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 
+                                            hover:opacity-80 transition-opacity">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+
+                                    <a href="https://www.tiktok.com/@smm_homa?_t=ZM-8yFRrYF9tX3&_r=1" target="_blank" rel="noopener"
+                                        class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:opacity-80 transition-opacity">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                    <a href="https://youtube.com/@keepingupwithhoma?si=Q2YU4A-VL_6W9o3B" target="_blank" rel="noopener"
+                                        class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white hover:opacity-80 transition-opacity">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-display font-bold">Homa<span class="text-primary">.</span></a>
+                    <p class="mt-2 text-gray-400 max-w-xs">
+                        Elevating brands through strategic social media management and creative content.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="hover:text-primary transition-colors">Services</a>
+                    <a href="#packages" class="hover:text-primary transition-colors">Packages</a>
+                    <a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#testimonials" class="hover:text-primary transition-colors">Testimonials</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 Homa Social Media Management. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real scenario, you would send this data to a server
+            // For demo purposes, we'll just show an alert
+            alert('Thank you, ${name}! Your message has been received. I'll get back to you soon at ${email}.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'963430f4e484b201',t:'MTc1MzIwMDQ0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
